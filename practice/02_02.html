@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../Interactive_section4-js-start/css/reset.css">
+    <style>
+        .stage {
+            position: relative;
+            width: 100vw;
+            height: 75vw;
+            background-color: #fff000;
+            overflow: hidden;
+        }
+
+        @keyframes moving {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(90vw);
+            }
+        }
+
+        .ilbuni {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            animation: moving infinite alternate;
+        }
+
+        .ilbuni.a {
+            background-image: url(../Interactive_section4-js-start/images/ilbuni_0.png);
+            left: 5%;
+            bottom: 5%;
+            animation-duration: 2s;
+        }
+
+        .ilbuni.b {
+            background-image: url(../Interactive_section4-js-start/images/ilbuni_1.png);
+            left: 10%;
+            bottom: 3%;
+            animation-duration: 3s;
+        }
+
+        .ilbuni.c {
+            background-image: url(../Interactive_section4-js-start/images/ilbuni_2.png);
+            left: 7%;
+            bottom: 10%;
+            animation-duration: 4s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="ilbuni a"></div>
+        <div class="ilbuni b"></div>
+        <div class="ilbuni c"></div>
+    </div>
+
+    <script>
+        /*
+        (function () {
+            const ilbuniGroup = document.querySelectorAll('.ilbuni');
+            const stage = document.querySelector('.stage')
+            function clickHandler() {
+                // console.log(this)
+                // stage.removeChild(this)
+                // console.log(this.parentNode)
+                this.parentNode.removeChild(this)
+            }
+            for (let i = 0; i < ilbuniGroup.length; i++) {
+                ilbuniGroup[i].addEventListener('click', clickHandler)
+            }
+        })();
+        */
+
+        (function () {
+            const stage = document.querySelector('.stage')
+            function clickHandler(event) {
+                // ilbuni가 아닌 stage 부분을 누르면 에러가 발생한다. 왜냐하면 아래 코드가 stage의 자식을 클릭했을 때 지워지는 건데 stage부분을 누르면 event.target이 stage가 되기 때문에 자기 자신은 자식이 아니기때문에 지울 수 없다는 것이다. 그래서 예외처리를 해주어야한다.
+                // stage.removeChild(event.target)
+
+                // 예외처리
+                // event.target의 class가 ilbuni인 것 만~ 
+                if (event.target.classList.contains('ilbuni')) {
+                    console.log(event.target)
+                    stage.removeChild(event.target)
+                }
+            }
+
+            stage.addEventListener('click', clickHandler)
+        })();
+    </script>
+</body>
+
+</html>
