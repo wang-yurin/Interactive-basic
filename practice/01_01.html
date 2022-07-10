@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web</title>
+    <style>
+        .box-container {
+            display: flex;
+        }
+
+        .box {
+            /* 트랜지션의 특징? 값으로 표현되는 속성이 값에 변화가 있을 때 중간 과정을 애니메이션으로 만들어준다. 
+            이게 무슨말이냐면 예를들어 width가 auto일 때 트랜지션이 먹지 않음(트랜지션이 트랜스폼에만 먹고 width에는 적용이 되지 않음), 
+            .box:hover에 width: 200px; background-color: lightcoral; 적용하고 .box에 width: auto;를 하면 auto는 값이 아니다. auto에서 200px로 넘어갈 때는 트렌지션이 먹지 않고 색깔만 트랜지션이 먹는걸 볼 수 있다. */
+            /* width: auto; */
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 0, 0.7);
+            border: 2px solid black;
+            transition: 0.5s;
+        }
+
+        .box:hover {
+            /* transform: scale(2) rotate(15deg); */
+            /* transform: skewX(30deg); */
+            /* transform: translate(30px, 30px); */
+            /* transform: scale(1.5); */
+
+            /* 트랜스폼 기준점이 원래 중앙인데 기준점 바꾸는 프로퍼티 */
+            /* transform-origin: left top; */
+            /* transform-origin: 30% 30%; */
+
+            /* transform: rotate(30deg); */
+            width: 200px;
+            background-color: lightcoral;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS Transform</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eaque, quo earum, quaerat illum id accusamus
+        doloribus nulla, praesentium obcaecati non repellendus et optio. Laboriosam unde provident quasi deserunt, ipsum
+        porro commodi maxime! Laboriosam libero dolore error nostrum esse voluptate. Dolore consequatur at rem id
+        debitis, maiores provident praesentium minus eaque iusto laboriosam quo modi fugiat in facilis quod dolorem
+        consectetur quam repellat error omnis. Hic iste eos odit quidem, at a, ipsam obcaecati nulla autem
+        exercitationem, aperiam repellat molestiae porro quas vero nostrum? Distinctio rerum vitae officiis. Porro,
+        assumenda accusamus eligendi mollitia harum nihil facilis magni molestias dolorem eveniet.
+    </p>
+    <div class="box-container">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+        <div class="box">D</div>
+        <div class="box">E</div>
+    </div>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit ea voluptatem modi quibusdam odio, eos aliquid
+        dicta vitae vero magnam, atque rerum exercitationem voluptatibus! Natus porro doloribus amet ipsa pariatur nemo
+        veniam maxime architecto alias. Perspiciatis, necessitatibus. Neque recusandae rerum corporis mollitia vero
+        beatae maiores pariatur ipsa placeat tenetur eveniet culpa aperiam, reiciendis quisquam expedita quibusdam
+        deleniti amet, unde fugiat iusto distinctio obcaecati non voluptatibus explicabo? Quod quos totam et blanditiis
+        dolorem, in sapiente, expedita quis saepe accusantium temporibus laudantium aspernatur neque voluptatum, nam
+        quaerat? Facere nesciunt laboriosam eum quibusdam. Ipsa facilis illum sit ea maxime quia debitis reprehenderit
+        iste.</p>
+</body>
+
+</html>

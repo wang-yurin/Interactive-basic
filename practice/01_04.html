@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .world {
+            width: 60vw;
+            height: 60vh;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 500px;
+        }
+
+        /*
+        .world:hover .card {
+            transform: rotateY(180deg);
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 150px;
+            background-color: tomato;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            margin: 1em;
+            transform:perspective(500px) rotateY(45deg);
+            transform: rotateY(0deg);
+            transition: 1s;
+        }
+        */
+
+        /* card-side의 레이아웃만 잡아준 것 */
+        .card {
+            width: 100px;
+            height: 150px;
+            margin: 1em;
+            position: relative;
+            transform: rotateY(0deg);
+            transition: 1s;
+            transform-style: preserve-3d;
+            /* transform-origin: right; */
+        }
+
+        .card-side {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5em;
+            font-size: 1.5rem;
+            backface-visibility: hidden;
+        }
+
+        .card-side-front {
+            z-index: 1;
+            background-color: white;
+        }
+
+        .card-side-back {
+            background-color: tomato;
+            transform: rotateY(180deg);
+        }
+
+        .world:hover .card {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="world">
+        <div class="card">CARD</div>
+        <div class="card">CARD</div>
+        <div class="card">CARD</div>
+    </div> -->
+
+    <div class="world">
+        <div class="card">
+            <div class="card-side card-side-front">F</div>
+            <div class="card-side card-side-back">B</div>
+        </div>
+    </div>
+</body>
+
+</html>
